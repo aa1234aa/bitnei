@@ -37,6 +37,37 @@ public class MyGetMethod {
         }
         return "必须带来";
     }
+    @RequestMapping(value = "/get/with/param",method = RequestMethod.GET)
+    @ApiOperation(value = "需求携带参数才能访问的get请求方法一",httpMethod = "GET")
+    public Map<String,Integer> getList(@RequestParam Integer start,
+                                       @RequestParam Integer end){
+        Map<String,Integer> myList = new HashMap<>();
+
+        myList.put("鞋",400);
+        myList.put("干脆面",1);
+        myList.put("衬衫",300);
+
+        return  myList;
+
+    }
+    /**
+     * 第二种需要携带参数访问的get请求
+     * url:ip:port/get/with/param/10/20
+     */
+    @RequestMapping(value = "/get/with/param/{start}/{end}",method = RequestMethod.GET)
+    @ApiOperation(value = "需求携带参数才能访问的get请求的第二种实现",httpMethod = "GET")
+    public  Map myGetList(@PathVariable Integer start,
+                          @PathVariable Integer end){
+
+        Map<String,Integer> myList = new HashMap<>();
+
+        myList.put("鞋",400);
+        myList.put("干脆面",1);
+        myList.put("衬衫",300);
+
+        return  myList;
+
+    }
 
 
 }
