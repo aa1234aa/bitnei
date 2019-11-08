@@ -1,4 +1,4 @@
-package controlcenter; /**
+package test.course.server; /**
  * xx模块
  */
 import java.util.HashMap;

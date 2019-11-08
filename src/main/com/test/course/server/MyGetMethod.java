@@ -1,4 +1,4 @@
-package controlcenter;
+package test.course.server;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

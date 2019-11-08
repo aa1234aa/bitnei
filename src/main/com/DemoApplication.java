@@ -1,4 +1,4 @@
-package controlcenter; /**
+/**
  * xx模块
  */
 import org.springframework.boot.SpringApplication;
@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
-@ComponentScan
+@ComponentScan("test.course")
 public class DemoApplication {
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);

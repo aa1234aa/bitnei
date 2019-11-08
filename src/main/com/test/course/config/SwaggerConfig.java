@@ -1,4 +1,4 @@
-package SwiggerConfig;
+package test.course.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
