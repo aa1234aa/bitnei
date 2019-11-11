@@ -1,6 +1,9 @@
-package test.course.server; /**
+/*
+package test.course.controller; */
+/**
  * xx模块
- */
+ *//*
+
 import java.util.HashMap;
 import java.util.Map;
 import org.springframework.stereotype.Controller;
@@ -17,3 +20,4 @@ public class HelloWorldController {
     }
 
 }
+*/

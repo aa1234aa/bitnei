@@ -1,4 +1,5 @@
-package test.course.server;
+/*
+package test.course.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -24,7 +25,9 @@ public class MyGetMethod {
         response.addCookie(cookie);
         return "恭喜你获得cookies信息成功";
     }
-    /*携带cookie*/
+    */
+/*携带cookie*//*
+
     @RequestMapping(value = "/get/with/cookies",method = RequestMethod.GET)
     @ApiOperation(value = "携带cookie",httpMethod = "GET")
     public String getWithCookies(HttpServletRequest request){
@@ -50,10 +53,12 @@ public class MyGetMethod {
         return  myList;
 
     }
-    /**
+    */
+/**
      * 第二种需要携带参数访问的get请求
      * url:ip:port/get/with/param/10/20
-     */
+     *//*
+
     @RequestMapping(value = "/get/with/param/{start}/{end}",method = RequestMethod.GET)
     @ApiOperation(value = "需求携带参数才能访问的get请求的第二种实现",httpMethod = "GET")
     public  Map myGetList(@PathVariable Integer start,
@@ -71,3 +76,4 @@ public class MyGetMethod {
 
 
 }
+*/
