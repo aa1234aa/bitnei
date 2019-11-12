@@ -4,6 +4,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.web.bind.annotation.*;
 import test.course.model.User;
 
@@ -25,6 +26,14 @@ public class Demo {
     public int addUser(@RequestBody User user){
         int result = template.insert("addUser",user);
         return result;
+    }
+    @RequestMapping(value = "/updateUser",method = RequestMethod.POST)
+    public int updateUser(@RequestBody User user){
+      return template.update("updateUser",user);
+    }
+    @RequestMapping(value = "/deleteUser",method = RequestMethod.GET)
+    public int delUser(@RequestParam int id){
+        return template.delete("deleteUser",id);
     }
 
 }
