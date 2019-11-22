@@ -15,8 +15,8 @@ public class ConfigFile {
         String address=bundle.getString("test.url");
         String uri="";
         String testUrl;
-        if(name==InterfaceName.GETUSERLIST){
-            uri=bundle.getString("getUserList.uri");
+        if(name==InterfaceName.LOGIN){
+            uri=bundle.getString("login.uri");
         }
         testUrl=address+uri;
         return  testUrl;
