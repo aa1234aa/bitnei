@@ -23,5 +23,24 @@
         select * from loginCase
         where id = #{id};
     </select>
+    <!--新增接口case-->
+    <select id="addUserCase" parameterType="Integer"  resultType="test.course.model.AddUserCase">
+
+        select * from addUserCase
+        where id = #{id};
+    </select>
+
+    <!--添加用户接口-->
+    <select id="addUser" parameterType="test.course.model.AddUserCase" resultType="test.course.model.User">
+        select * from user where
+        username=#{username}
+        and password=#{password}
+        and sex=#{sex}
+        and age=#{age}
+        and permission=#{permission}
+        and isDelete=#{isDelete};
+
+    </select>
+
 
 </mapper>

@@ -7,14 +7,14 @@
             <class name="test.course.cases.LoginTest">
                 <methods>
                     <include name="loginTrue"/>
-                    <!--<include name="loginFalse"/>-->
+                    <include name="loginFalse"/>
                 </methods>
             </class>
-            <!--<class name="com.tester.cases.AddUserTest">-->
-                <!--<methods>-->
-                    <!--<include name="addUser"/>-->
-                <!--</methods>-->
-            <!--</class>-->
+            <class name="test.course.cases.AddUserTest">
+                <methods>
+                    <include name="addUser"/>
+                </methods>
+            </class>
             <!--<class name="com.tester.cases.GetUserInfoTest">-->
                 <!--<methods>-->
                     <!--<include name="getUserInfo"/>-->

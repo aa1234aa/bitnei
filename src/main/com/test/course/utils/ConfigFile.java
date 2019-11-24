@@ -18,6 +18,15 @@ public class ConfigFile {
         if(name==InterfaceName.LOGIN){
             uri=bundle.getString("login.uri");
         }
+        if(name==InterfaceName.ADDUSERINFO){
+            uri=bundle.getString("addUser.uri");
+        }
+        if(name==InterfaceName.LOGIN){
+            uri=bundle.getString("login.uri");
+        }
+        if(name==InterfaceName.LOGIN){
+            uri=bundle.getString("login.uri");
+        }
         testUrl=address+uri;
         return  testUrl;
     }

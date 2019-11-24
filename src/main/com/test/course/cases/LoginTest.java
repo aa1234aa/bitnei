@@ -26,7 +26,7 @@ public class LoginTest {
     private void beforeTest(){
         TestConfig.defaultHttpClient=new DefaultHttpClient();
         //TestConfig.getUserInfoUrl=ConfigFile.getUrl(InterfaceName.GETUSERLIST);
-        //TestConfig.getUserInfoUrl=ConfigFile.getUrl(InterfaceName.ADDUSERINFO);
+        TestConfig.addUserUrl=ConfigFile.getUrl(InterfaceName.ADDUSERINFO);
         TestConfig.loginUrl=ConfigFile.getUrl(InterfaceName.LOGIN);
         //TestConfig.getUserInfoUrl=ConfigFile.getUrl(InterfaceName.UPDATEUSERINFO);
         //TestConfig.getUserInfoUrl=ConfigFile.getUrl(InterfaceName.GETUSERINFO);
@@ -45,11 +45,25 @@ public class LoginTest {
         Assert.assertEquals(loginCase.getExpected(),result);
 
     }
+    @Test(groups = "loginFalse",description = "用户成功登陆接口")
+    public void loginFalse() throws IOException {
+
+        SqlSession session = DatabaseUtil.getSqlSession();
+        LoginCase loginCase = session.selectOne("loginCase",1);
+        System.out.println(loginCase.toString());
+        System.out.println(TestConfig.loginUrl);
+
+        //下边的代码为写完接口的测试代码
+        String result = getResult(loginCase);
+        //处理结果，就是判断返回结果是否符合预期
+        Assert.assertEquals(loginCase.getExpected(),result);
+
+    }
     private String getResult(LoginCase loginCase) throws IOException {
         //下边的代码为写完接口的测试代码
         HttpPost post = new HttpPost(TestConfig.loginUrl);
         JSONObject param = new JSONObject();
-        param.put("userName",loginCase.getUsername());
+        param.put("username",loginCase.getUsername());
         param.put("password",loginCase.getPassword());
         //设置请求头信息 设置header
         post.setHeader("content-type","application/json");
@@ -61,7 +75,7 @@ public class LoginTest {
         //执行post方法
         HttpResponse response = TestConfig.defaultHttpClient.execute(post);
         //获取响应结果
-        result = EntityUtils.toString(response.getEntity(),"utf-8");
+        result= EntityUtils.toString(response.getEntity(),"utf-8");
         System.out.println(result);
         TestConfig.store = TestConfig.defaultHttpClient.getCookieStore();
         return result;

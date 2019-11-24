@@ -20,7 +20,6 @@ public class DatabaseUtil {
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader);
         //得到sqlsession对象，这个对象就能执行配置文件中的sql语句啦
         SqlSession session = factory.openSession();
-
         return session;
     }
 }
