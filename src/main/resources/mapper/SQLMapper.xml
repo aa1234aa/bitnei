@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.test.course.case">
+<!--    <select id="getUserCount" resultType="Integer">
+        select count(*) from user;
+    </select>
+    <insert id="addUser" parameterType="test.course.model.User">
+        insert into user (id,name,age) values (#{id},#{name},#{age})
+    </insert>
+   <update id="updateUser" parameterType="test.course.model.User">
+         update user set name =#{name},age=#{age} where id=#{id}
+   </update>
+    <delete id="deleteUser" parameterType="Integer">
+        delete from user where id = #{id}
+
+    </delete>-->
+    <!--获取登陆接口case-->
+    <select id="loginCase" parameterType="Integer"  resultType="test.course.model.LoginCase">
+
+        select * from loginCase
+        where id = #{id};
+    </select>
+    <!--新增接口case-->
+    <select id="addUserCase" parameterType="Integer"  resultType="test.course.model.AddUserCase">
+
+        select * from addUserCase
+        where id = #{id};
+    </select>
+
+    <!--添加用户接口-->
+    <select id="addUser" parameterType="test.course.model.AddUserCase" resultType="test.course.model.User">
+        select * from user where
+        username=#{username}
+        and password=#{password}
+        and sex=#{sex}
+        and age=#{age}
+        and permission=#{permission}
+        and isDelete=#{isDelete};
+
+    </select>
+
+
+</mapper>
