@@ -6,20 +6,20 @@
         <classes>
             <class name="test.course.cases.LoginTest">
                 <methods>
-                    <include name="loginTrue"/>
                     <include name="loginFalse"/>
+                    <include name="loginTrue"/>
                 </methods>
             </class>
-            <class name="test.course.cases.AddUserTest">
+       <!--     <class name="test.course.cases.AddUserTest">
                 <methods>
                     <include name="addUser"/>
                 </methods>
+            </class>-->
+            <class name="test.course.cases.GetUserInfoListTest">
+                <methods>
+                    <include name="getUserInfo"/>
+                </methods>
             </class>
-            <!--<class name="com.tester.cases.GetUserInfoTest">-->
-                <!--<methods>-->
-                    <!--<include name="getUserInfo"/>-->
-                <!--</methods>-->
-            <!--</class>-->
             <!--<class name="com.tester.cases.UpdateUserInfoTest">-->
                 <!--<methods>-->
                     <!--<include name="updateUserInfo"/>-->

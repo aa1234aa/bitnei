@@ -28,8 +28,8 @@ public class LoginTest {
         //TestConfig.getUserInfoUrl=ConfigFile.getUrl(InterfaceName.GETUSERLIST);
         TestConfig.addUserUrl=ConfigFile.getUrl(InterfaceName.ADDUSERINFO);
         TestConfig.loginUrl=ConfigFile.getUrl(InterfaceName.LOGIN);
-        //TestConfig.getUserInfoUrl=ConfigFile.getUrl(InterfaceName.UPDATEUSERINFO);
-        //TestConfig.getUserInfoUrl=ConfigFile.getUrl(InterfaceName.GETUSERINFO);
+        TestConfig.getUserListUrl=ConfigFile.getUrl(InterfaceName.GETUSERLIST);
+        TestConfig.getUserInfoUrl=ConfigFile.getUrl(InterfaceName.GETUSERINFO);
     }
     @Test(groups = "loginTrue",description = "用户成功登陆接口")
     public void loginTrue() throws IOException {
@@ -45,7 +45,7 @@ public class LoginTest {
         Assert.assertEquals(loginCase.getExpected(),result);
 
     }
-    @Test(groups = "loginFalse",description = "用户成功登陆接口")
+    @Test(groups = "loginFalse",description = "用户失败登陆接口")
     public void loginFalse() throws IOException {
 
         SqlSession session = DatabaseUtil.getSqlSession();

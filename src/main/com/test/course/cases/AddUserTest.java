@@ -27,15 +27,12 @@ public class AddUserTest {
         String result=getResult(addUserCase);
         //此处要抛异常
         Thread.sleep(2000);
-        User user=session.selectOne("addUser",addUserCase);
+        SqlSession session2= DatabaseUtil.getSqlSession();
+        //验证返回的结果
+       User user=session2.selectOne("addUser",addUserCase);
+
         System.out.println(user.toString());
         Assert.assertEquals(addUserCase.getExpected(),result);
-
-
-
-
-
-
 
     }
     private String getResult(AddUserCase addUserCase)throws IOException{

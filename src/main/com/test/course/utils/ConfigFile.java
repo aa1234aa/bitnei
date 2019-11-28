@@ -21,11 +21,11 @@ public class ConfigFile {
         if(name==InterfaceName.ADDUSERINFO){
             uri=bundle.getString("addUser.uri");
         }
-        if(name==InterfaceName.LOGIN){
-            uri=bundle.getString("login.uri");
+        if(name==InterfaceName.GETUSERINFO){
+            uri=bundle.getString("getUserInfo.uri");
         }
-        if(name==InterfaceName.LOGIN){
-            uri=bundle.getString("login.uri");
+        if(name==InterfaceName.GETUSERLIST){
+            uri=bundle.getString("getUserList.uri");
         }
         testUrl=address+uri;
         return  testUrl;
