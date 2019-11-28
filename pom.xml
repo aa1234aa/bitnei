@@ -165,9 +165,15 @@
     </dependency>
 
     <dependency>
-      <groupId>org.json</groupId>
-      <artifactId>json</artifactId>
-      <version>20180130</version>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>1.2.62</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>1.2.62</version>
     </dependency>
 
   </dependencies>

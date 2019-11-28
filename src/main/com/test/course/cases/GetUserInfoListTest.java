@@ -1,13 +1,13 @@
 package test.course.cases;
 
-import com.google.gson.Gson;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.util.EntityUtils;
 import org.apache.ibatis.session.SqlSession;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import test.course.config.TestConfig;
@@ -22,7 +22,7 @@ import java.util.List;
  * xx模块
  */
 public class GetUserInfoListTest {
-    @Test(dependsOnGroups="loginTrue",description = "获取性别为男的用户信息")
+    @Test(dependsOnGroups="loginTrue",description = "获取的用户信息")
     public void getUserListInfo() throws IOException, InterruptedException {
 
         SqlSession session = DatabaseUtil.getSqlSession();
@@ -35,7 +35,8 @@ public class GetUserInfoListTest {
 
 
         //下边为写完接口的代码
-        JSONArray resultJson = getJsonResult(getUserListCase);
+
+        String resultJson = getJsonResult(getUserListCase);
         /**
          * 可以先讲
          */
@@ -44,18 +45,16 @@ public class GetUserInfoListTest {
         for(User u : userList){
            System.out.println("list获取的user:"+u.toString());
         }
-        JSONArray userListJson = new JSONArray(userList);
-        Assert.assertEquals(userListJson.length(),resultJson.length());
-       for(int i = 0;i<resultJson.length();i++){
-            JSONObject expect = (JSONObject) resultJson.get(i);
-            JSONObject actual = (JSONObject) userListJson.get(i);
-            Assert.assertEquals(expect.toString(), actual.toString());
+        List<User> userListJson = JSON.parseArray(resultJson,User.class);
+        Assert.assertEquals(userListJson.size(),userList.size());
+       for(int i = 0;i<userListJson.size();i++){
+           User user = userList.get(i);
+           User user1 = userListJson.get(i);
+            Assert.assertEquals(user1.toString(), user.toString());
         }
-
-
     }
 
-    private JSONArray getJsonResult(GetUserListCase getUserListCase) throws IOException {
+    private String getJsonResult(GetUserListCase getUserListCase) throws IOException {
         HttpPost post = new HttpPost(TestConfig.getUserListUrl);
         JSONObject param = new JSONObject();
         param.put("username",getUserListCase.getUsername());
@@ -74,12 +73,9 @@ public class GetUserInfoListTest {
         HttpResponse response = TestConfig.defaultHttpClient.execute(post);
         //获取响应结果
         result = EntityUtils.toString(response.getEntity(),"utf-8");
-        System.out.println(result);
-        JSONArray jsonArray = new JSONArray(result);
 
-        System.out.println("调用接口list result:"+result);
 
-        return jsonArray;
+        return result;
 
     }
 }
